@@ -1,5 +1,18 @@
 # Kustomize control file for Overlay
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  foo: bar
+
 bases:
 - ../../../k-vendor/base
 patches:
 - keep_running.yaml
+
+configMapGenerator:
+  - name: mops
+    literals:
+      - PS1=""
+      - GUGUS="dada"
+

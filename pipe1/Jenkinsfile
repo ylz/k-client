@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
+
+    environment { 
+        GUGUS = "dada" 
+    }
+
+
+    stages {
+        stage('Greets') {
+            steps {
+                echo "$Greeting"
+            }
+        }
+        stage('Hubel') {
+            steps {
+                echo 'Testing..'
+                echo "$GUGUS"
+            }
+        }
+        stage('Fubbel') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+    post {
+        always {
+            mail to: root@localhost, subject: 'The Pipeline ran (:', body: 'yours sincerely...'
+        }
+    }    
+}

@@ -30,7 +30,11 @@ pipeline {
     }
     post {
         always {
-            mail to: root@localhost, subject: 'The Pipeline ran (:', body: 'yours sincerely...'
+            // mail to: root@localhost, subject: 'The Pipeline ran (:', body: 'yours sincerely...'
+            echo "Alway POST"
+        }
+        failure {
+            echo "Fail!!! ):"
         }
     }    
 }

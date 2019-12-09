@@ -1,0 +1,37 @@
+/*
+deploy_DEV
+
+Run from Vendor_build_onTag
+
+Parameter:
+- TAG (of vendor Git)
+
+Checks out the Git needed:
+- client master
+- vendor TAG
+*/
+
+pipeline {
+  agent any
+  stages {
+    stage('Init') {
+      steps {
+        echo 'checkout k-vendor'
+        echo 'checkout k-client'
+      }
+    }
+    stage('Create configuration') {
+      steps() {
+        echo 'do the deploy.sh stuff'
+      }
+    }
+    stage('Deloy the stuff') {
+      steps {
+        echo 'execute the deployment'
+      }
+    }
+    stage('Put config to Git') {
+        echo 'Put config to Git, check it to branch, create Tag from this to store deployment'
+    }
+  }
+}

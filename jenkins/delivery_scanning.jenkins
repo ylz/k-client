@@ -1,0 +1,31 @@
+/*
+delivery_scanning
+
+Run from Vendor_build_onTag
+
+Parameter:
+- TAG
+
+Checks out the following:
+- vendor TAG
+
+Action:
+- Finds some files or so
+- Performs scanning via remote host
+*/
+
+pipeline {
+  agent any
+  stages {
+    stage('Init') {
+      steps {
+        echo 'checkout k-vendor'
+      }
+    }
+    stage('Scan') {
+      steps() {
+        echo 'do da scan'
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
 pipeline {
   agent any
-  load 'pipe1/allTheRest.jenkins'
+  build(job: 'triggerOnTag-descPipe')
 }

@@ -17,6 +17,12 @@ Action:
 pipeline {
   agent any
   stages {
+    stage('Envs') {
+      echo '*************************************************************'
+      echo 'Show me all ENVS here:'
+      sh 'env'
+      echo '*************************************************************'
+    }
     stage('Init') {
       steps {
         echo 'checkout k-vendor'

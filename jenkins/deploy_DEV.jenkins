@@ -14,6 +14,12 @@ Checks out the Git needed:
 pipeline {
   agent any
   stages {
+    stage('Envs') {
+      echo '*************************************************************'
+      echo 'Show me all ENVS here:'
+      sh 'env'
+      echo '*************************************************************'
+    }
     stage('Init') {
       steps {
         echo 'checkout k-vendor'
@@ -33,8 +39,7 @@ pipeline {
     stage('Put config to Git') {
       steps {
         echo 'Put config to Git, check it to branch, create Tag from this to store deployment'
-        echo 'what happens if I exit 1?'
-        exit 1
+        echo 'If you want, exit 1 and let everything fail'
       }
     }
   }

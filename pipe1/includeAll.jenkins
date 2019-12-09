@@ -1,8 +1,10 @@
 pipeline {
   agent any
-  stage('Holla') {
-    steps {
-      build(job: 'triggerOnTag-descPipe')
+  stages {
+    stage('Holla') {
+      steps {
+        build(job: 'triggerOnTag-descPipe')
+      }
     }
   }
 }

@@ -1,0 +1,37 @@
+environment { 
+    Greeting = "Hello"
+    GUGUS = "dada" 
+}
+
+stages {
+    stage('Greets') {
+        steps {
+            echo "$Greeting"
+        }
+    }
+    stage('Hubel') {
+        steps {
+            echo 'Testing..'
+            echo "$GUGUS"
+        }
+    }
+    stage('Fubbel') {
+        steps {
+            echo 'Deploying....'
+        }
+    }
+    stage('Include') {
+        steps {
+            load 'pipe1/includeOnTag.jenkins'
+        }
+    }
+}
+post {
+    always {
+        // mail to: root@localhost, subject: 'The Pipeline ran (:', body: 'yours sincerely...'
+        echo "Alway POST"
+    }
+    failure {
+        echo "Fail!!! ):"
+    }
+}    

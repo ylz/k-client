@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Include') {
             steps {
-                load includeOnTag.jenkins
+                load 'pipe1/includeOnTag.jenkins'
             }
         }
     }

@@ -34,7 +34,9 @@ pipeline {
     stage('Init') {
       steps {
         echo 'checkout k-vendor'
-        git branch: "${DeployVersion}", url: 'https://github.com/ylz/k-vendor.git'
+        dir ('vendor') [
+          git branch: "refs/tags/${DeployVersion}", url: 'https://github.com/ylz/k-vendor.git'
+        ]
       }
     }
     stage('Scan') {

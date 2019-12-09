@@ -31,7 +31,9 @@ pipeline {
       }
     }
     stage('Put config to Git') {
+      steps {
         echo 'Put config to Git, check it to branch, create Tag from this to store deployment'
+      }
     }
   }
 }

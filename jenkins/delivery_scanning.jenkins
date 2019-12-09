@@ -28,6 +28,7 @@ pipeline {
         echo 'Show me all ENVS here:'
         sh 'env'
         echo '*************************************************************'
+        echo "Do we have this as Groovy Variable? ${DeployVersion}"
       }
     }
     stage('Init') {

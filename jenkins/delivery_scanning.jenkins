@@ -16,6 +16,11 @@ Action:
 
 pipeline {
   agent any
+
+  parameters {
+    string(name: 'DeployVersion', defaultValue: '0.1.666-666', description: 'Version of Software to scan')
+  }
+
   stages {
     stage('Envs') {
       steps {

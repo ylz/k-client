@@ -4,4 +4,5 @@ pipeline {
     steps {
       build(job: 'triggerOnTag-descPipe')
     }
+  }
 }

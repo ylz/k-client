@@ -1,0 +1,5 @@
+steps {
+    echo 'This is the include file'
+    echo 'Env Vars:'
+    sh 'env'
+}

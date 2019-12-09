@@ -27,6 +27,9 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+        stage('Include') {
+            load includeOnTag.jenkins
+        }
     }
     post {
         always {

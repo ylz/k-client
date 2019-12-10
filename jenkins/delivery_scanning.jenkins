@@ -35,7 +35,7 @@ pipeline {
       steps {
         sh 'echo "If this file is here, it is not cleaned up" > notcleanedup'
         echo 'Clean workspace'
-        ws.Clean
+        cleanWs()
         echo 'checkout k-vendor'
         dir ('vendor') {
           // checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']], 

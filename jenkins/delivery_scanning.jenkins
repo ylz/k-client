@@ -34,11 +34,11 @@ pipeline {
     stage('Init') {
       steps {
         echo 'checkout k-vendor'
-        dir ('vendor') [
+        dir ('vendor') {
           checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']], 
           branches: [[name: "releases/tags/${DeployVersion}"]]], poll: false
           // git branch: "refs/tags/${DeployVersion}", url: 'https://github.com/ylz/k-vendor.git'
-        ]
+        }
       }
     }
     stage('Scan') {

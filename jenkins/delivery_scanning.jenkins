@@ -35,9 +35,9 @@ pipeline {
       steps {
         echo 'checkout k-vendor'
         dir ('vendor') {
-          checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']], 
-          branches: [[name: "releases/tags/${DeployVersion}"]]], poll: false
-          // git branch: "refs/tags/${DeployVersion}", url: 'https://github.com/ylz/k-vendor.git'
+          // checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']], 
+          // branches: [[name: "releases/tags/${DeployVersion}"]]], poll: false
+          git branch: "refs/tags/${DeployVersion}", url: 'https://github.com/ylz/k-vendor.git'
         }
       }
     }

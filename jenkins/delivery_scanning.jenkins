@@ -41,6 +41,7 @@ pipeline {
           // checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']], 
           // branches: [[name: "releases/tags/${DeployVersion}"]]], poll: false
           // git branch: "refs/tags/${DeployVersion}", url: 'https://github.com/ylz/k-vendor.git'
+          git url: 'https://github.com/ylz/k-vendor.git'
           sh "git checkout ${DeployVersion}"
         }
       }

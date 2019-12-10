@@ -38,20 +38,18 @@ pipeline {
         cleanWs()
         echo 'checkout k-vendor'
         dir ('vendor') {
-          // checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']], 
-          // branches: [[name: "releases/tags/${DeployVersion}"]]], poll: false
-          // git branch: "refs/tags/${DeployVersion}", url: 'https://github.com/ylz/k-vendor.git'
-
           checkout([
             $class: 'GitSCM',
             branches: [[name: "refs/tags/${DeployVersion}"]],
             userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']]
           ])
-
-          /*
-          git url: 'https://github.com/ylz/k-vendor.git'
-          sh "git checkout ${DeployVersion}"
-          */
+        }
+        dir ('environment') {
+          checkout([
+            $class: 'GitSCM',
+            branches: [[name: "*/master"]],
+            userRemoteConfigs: [[url: 'https://github.com/ylz/k-client.git']]
+          ])
         }
       }
     }

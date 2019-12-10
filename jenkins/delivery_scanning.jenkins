@@ -33,6 +33,7 @@ pipeline {
     }
     stage('Init') {
       steps {
+        sh 'echo "If this file is here, it is not cleaned up" > notcleanedup'
         echo 'Clean workspace'
         ws.Clean
         echo 'checkout k-vendor'

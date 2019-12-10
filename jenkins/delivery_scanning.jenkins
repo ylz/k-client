@@ -56,6 +56,9 @@ pipeline {
     stage('Scan') {
       steps() {
         echo 'do da scan'
+        dir ('vendor') {
+          sh 'find . -type f -exec ls -lh {} ";"'
+        }
       }
     }
   }

@@ -44,7 +44,7 @@ pipeline {
 
           checkout([
             $class: 'GitSCM',
-            branches: [[name: '*/master']],
+            branches: [[name: '*/p-a-03']],
             userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']]
           ])
 

@@ -33,6 +33,8 @@ pipeline {
     }
     stage('Init') {
       steps {
+        echo 'Clean workspace'
+        ws.Clean
         echo 'checkout k-vendor'
         dir ('vendor') {
           // checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/ylz/k-vendor.git']], 

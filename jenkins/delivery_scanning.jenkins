@@ -58,6 +58,7 @@ pipeline {
         echo 'do da scan'
         dir ('vendor') {
           sh 'find . -type f -exec ls -lh {} ";"'
+          sh 'echo "Show README.md"; cat README.md'
         }
       }
     }
